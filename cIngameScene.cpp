@@ -38,6 +38,10 @@ void cIngameScene::Update()
 void cIngameScene::Render()
 {
 	m_map->Render();
-	m_player->Render();
 	m_bullet->Render();
+	m_player->Render();
+}
+
+void cIngameScene::UIRender()
+{
 }

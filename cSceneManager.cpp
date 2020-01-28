@@ -67,3 +67,10 @@ void cSceneManager::Render()
 	if (m_nowScene)
 		m_nowScene->Render();
 }
+
+void cSceneManager::UIRender()
+{
+	if (m_nowScene)
+		m_nowScene->UIRender();
+}
+

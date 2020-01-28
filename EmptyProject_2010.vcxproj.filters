@@ -140,6 +140,9 @@
     <ClCompile Include="cUIManager.cpp">
       <Filter>managers</Filter>
     </ClCompile>
+    <ClCompile Include="cRenderManager.cpp">
+      <Filter>managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -186,6 +189,9 @@
       <Filter>texture</Filter>
     </ClInclude>
     <ClInclude Include="cUIManager.h">
+      <Filter>managers</Filter>
+    </ClInclude>
+    <ClInclude Include="cRenderManager.h">
       <Filter>managers</Filter>
     </ClInclude>
   </ItemGroup>

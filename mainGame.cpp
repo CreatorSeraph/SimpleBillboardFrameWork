@@ -20,9 +20,10 @@ void mainGame::Init()
 
 void mainGame::Release()
 {
-	cImageManager::ReleaseInstance();
 	cSceneManager::ReleaseInstance();
 	cUIManager::ReleaseInstance();
+	cRenderManager::ReleaseInstance();
+	cImageManager::ReleaseInstance();
 }
 
 void mainGame::Update()
@@ -32,9 +33,11 @@ void mainGame::Update()
 
 void mainGame::Render()
 {
+	SCENEMANAGER->Render();
+
 	UIMANAGER->Begin();
 
-	SCENEMANAGER->Render();
+	SCENEMANAGER->UIRender();
 
 	UIMANAGER->End();
 }

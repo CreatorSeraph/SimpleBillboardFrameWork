@@ -14,6 +14,9 @@ cUIManager::~cUIManager()
 
 void cUIManager::Begin()
 {
+	//D3DXMATRIXA16 matWorld;
+	//D3DXMatrixIdentity(&matWorld);
+	//g_device->SetTransform(D3DTS_WORLD, &matWorld);
 	m_sprite->Begin(D3DXSPRITE_ALPHABLEND);
 }
 

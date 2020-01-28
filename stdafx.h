@@ -24,4 +24,5 @@ const int WINSIZEY = 600;
 #include "cTexture.h"
 #include "cImageManager.h"
 #include "cUIManager.h"
+#include "cRenderManager.h"
 #include "cSceneManager.h"

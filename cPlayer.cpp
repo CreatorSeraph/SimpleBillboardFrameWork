@@ -24,7 +24,7 @@ void cPlayer::Update()
 		m_pos.y -= 300 * DXUTGetElapsedTime();
 	if (GetAsyncKeyState(VK_DOWN) & 0x8000)
 		m_pos.y += 300 * DXUTGetElapsedTime();
-	if (GetAsyncKeyState(VK_SPACE) & 0x0001)
+	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 	{
 		m_fireBullet.push_back(new cPlayerBullet(
 			D3DXVECTOR2(m_pos.x, m_pos.y - 60)));
@@ -33,5 +33,6 @@ void cPlayer::Update()
 
 void cPlayer::Render()
 {
-	UIMANAGER->CenterRender(m_playerImage, m_pos.x, m_pos.y);
+	cout << m_pos.x << "\t" << m_pos.y << endl;
+	RENDER->Render(m_playerImage, m_pos.x, m_pos.y, -1);
 }

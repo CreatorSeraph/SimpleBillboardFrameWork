@@ -21,6 +21,8 @@ void cScroolMap::Render()
 {
 	//반복되는 백그라운드 이미지를 예시로 사용할것임
 	float renderPos = (int)m_scrool % m_backGround->info.Height;
-	UIMANAGER->Render(m_backGround, 0, renderPos - m_backGround->info.Height);
-	UIMANAGER->Render(m_backGround, 0, renderPos);
+	RENDER->Render(m_backGround, 0, renderPos - m_backGround->info.Height);
+	RENDER->Render(m_backGround, 0, renderPos);
+	//UIMANAGER->Render(m_backGround, 0, renderPos - m_backGround->info.Height);
+	//UIMANAGER->Render(m_backGround, 0, renderPos);
 }

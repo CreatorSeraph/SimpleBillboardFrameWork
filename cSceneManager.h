@@ -19,6 +19,7 @@ public:
 
 	void Update();
 	void Render();
+	void UIRender();
 };
 
 #define SCENEMANAGER cSceneManager::GetInstance()

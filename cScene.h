@@ -6,6 +6,7 @@ public:
 	virtual void Release() PURE;
 	virtual void Update() PURE;
 	virtual void Render() PURE;
+	virtual void UIRender() PURE;
 
 	cScene();
 	virtual ~cScene();
