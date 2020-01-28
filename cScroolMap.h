@@ -3,7 +3,7 @@ class cScroolMap
 {
 private:
 	float m_scrool;
-	texture* m_backGround;
+	cTexture* m_backGround;
 public:
 	cScroolMap();
 	~cScroolMap();

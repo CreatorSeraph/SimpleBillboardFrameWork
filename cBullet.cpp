@@ -3,7 +3,7 @@
 
 
 cBullet::cBullet(const D3DXVECTOR2& pos, double size)
-	:m_pos(pos), m_size(size)
+	: m_pos(pos), m_size(size), m_image(nullptr)
 {
 }
 
@@ -14,7 +14,7 @@ cBullet::~cBullet()
 
 void cBullet::Render()
 {
-	m_image->CenterRender(m_pos.x, m_pos.y);
+	UIMANAGER->CenterRender(m_image, m_pos.x, m_pos.y);
 }
 
 bool cBullet::IsOutMap()

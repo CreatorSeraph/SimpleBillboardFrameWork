@@ -33,5 +33,5 @@ void cPlayer::Update()
 
 void cPlayer::Render()
 {
-	m_playerImage->CenterRender(m_pos.x, m_pos.y);
+	UIMANAGER->CenterRender(m_playerImage, m_pos.x, m_pos.y);
 }

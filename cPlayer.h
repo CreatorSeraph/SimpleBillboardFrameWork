@@ -4,7 +4,7 @@ class cBullet;
 class cPlayer
 {
 private:
-	texture* m_playerImage;
+	cTexture* m_playerImage;
 
 	D3DXVECTOR2 m_pos;
 

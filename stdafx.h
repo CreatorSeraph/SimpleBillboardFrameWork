@@ -21,6 +21,7 @@ using namespace std;
 const int WINSIZEX = 768;
 const int WINSIZEY = 600;
 
-//매니저 추가
+#include "cTexture.h"
 #include "cImageManager.h"
+#include "cUIManager.h"
 #include "cSceneManager.h"

@@ -22,6 +22,7 @@ void mainGame::Release()
 {
 	cImageManager::ReleaseInstance();
 	cSceneManager::ReleaseInstance();
+	cUIManager::ReleaseInstance();
 }
 
 void mainGame::Update()
@@ -31,17 +32,19 @@ void mainGame::Update()
 
 void mainGame::Render()
 {
-	IMAGEMANAGER->Begin();
+	UIMANAGER->Begin();
 
 	SCENEMANAGER->Render();
 
-	IMAGEMANAGER->End();
+	UIMANAGER->End();
 }
 
 void mainGame::LostDevice()
 {
+	UIMANAGER->LostDevice();
 }
 
 void mainGame::ResetDevice()
 {
+	UIMANAGER->ResetDevice();
 }

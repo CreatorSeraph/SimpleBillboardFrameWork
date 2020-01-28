@@ -2,7 +2,7 @@
 class cBullet abstract
 {
 protected:
-	texture* m_image;
+	cTexture* m_image;
 	D3DXVECTOR2 m_pos;
 
 	double m_size;

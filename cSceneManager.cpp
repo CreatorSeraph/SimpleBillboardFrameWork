@@ -2,7 +2,6 @@
 #include "cSceneManager.h"
 
 #include "cScene.h"
-//클래스를 전방선언 해줬다면 cpp파일에선 헤더파일을 추가해주자(윗줄을 지워보면 왜 추가해야하는지 알수 있다)
 
 cSceneManager::cSceneManager()
 	:m_nowScene(nullptr), m_nextScene(nullptr)

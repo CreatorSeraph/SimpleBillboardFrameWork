@@ -1,40 +1,23 @@
 #include "DXUT.h"
 #include "cImageManager.h"
-
-void texture::Render(float x, float y, float size, float rot, D3DCOLOR color)
-{
-	IMAGEMANAGER->Render(this, x, y, size, rot, color);
-}
-
-void texture::Render(float x, float y, float rot)
-{
-	IMAGEMANAGER->Render(this, x, y, rot);
-}
-
-void texture::CenterRender(float x, float y, float size, float rot, D3DCOLOR color)
-{
-	IMAGEMANAGER->CenterRender(this, x, y, size, rot, color);
-}
-
-void texture::CenterRender(float x, float y, float rot)
-{
-	IMAGEMANAGER->CenterRender(this, x, y, rot);
-}
+#include "cTexture.h"
 
 cImageManager::cImageManager()
-	:m_sprite(nullptr)
 {
-	Init();
 }
 
 
 cImageManager::~cImageManager()
 {
-	Release();
+	for (auto iter : m_images)
+	{
+		iter.second->texturePtr->Release();
+		SAFE_DELETE(iter.second);
+	}
 }
 
 //불러올 이미지를 부를 이름과 경로
-texture* cImageManager::AddImage(const string& key, const string& path)
+cTexture* cImageManager::AddImage(const string& key, const string& path)
 {
 	auto find = m_images.find(key);//이미 있는 이름을 다시 쓰려고 하는게 아닌지 확인해본다
 	if (find == m_images.end())
@@ -45,7 +28,7 @@ texture* cImageManager::AddImage(const string& key, const string& path)
 		if (D3DXCreateTextureFromFileExA(g_device, path.c_str(), D3DX_DEFAULT_NONPOW2, D3DX_DEFAULT_NONPOW2, 0, 0,
 			D3DFMT_UNKNOWN, D3DPOOL_MANAGED, D3DX_DEFAULT, D3DX_DEFAULT, 0, &info, nullptr, &texturePtr) == S_OK)
 		{
-			texture* text = new texture(texturePtr, info);
+			cTexture* text = new cTexture(texturePtr, info);
 			m_images.insert(make_pair(key, text));
 			return text;
 		}
@@ -61,80 +44,9 @@ texture* cImageManager::AddImage(const string& key, const string& path)
 	return find->second;
 }
 
-texture* cImageManager::FindImage(const string& key)
+cTexture* cImageManager::FindImage(const string& key)
 {
 	auto find = m_images.find(key);//이름으로 이미지를 찾아본다
 	if (find == m_images.end()) return nullptr;//없으면 nullptr을 뱉는다
 	return find->second;//있으면 그걸 뱉는다
-}
-
-void cImageManager::Init()
-{
-	D3DXCreateSprite(g_device, &m_sprite);
-}
-
-void cImageManager::Release()
-{
-	for (auto iter : m_images)
-	{
-		iter.second->texturePtr->Release();
-		SAFE_DELETE(iter.second);
-	}
-	m_images.clear();
-
-	m_sprite->Release();
-}
-
-void cImageManager::Begin()
-{
-	m_sprite->Begin(D3DXSPRITE_ALPHABLEND);
-}
-
-void cImageManager::End()
-{
-	m_sprite->End();
-}
-
-void cImageManager::Render(texture* texturePtr, float x, float y, float size, float rot, D3DCOLOR color)
-{
-	if (texturePtr)
-	{
-		D3DXMATRIXA16 mat;
-
-		D3DXMatrixAffineTransformation2D(&mat, size, nullptr, rot, &D3DXVECTOR2(x, y));
-		m_sprite->SetTransform(&mat);
-		m_sprite->Draw(texturePtr->texturePtr, nullptr, nullptr, nullptr, color);
-	}
-}
-
-void cImageManager::Render(texture* texturePtr, float x, float y, float rot)
-{
-	if (texturePtr)
-	{
-		D3DXMATRIXA16 mat;
-
-		D3DXMatrixAffineTransformation2D(&mat, 1.f, nullptr, rot, &D3DXVECTOR2(x, y));
-		m_sprite->SetTransform(&mat);
-		m_sprite->Draw(texturePtr->texturePtr, nullptr, nullptr, nullptr, D3DCOLOR_XRGB(255, 255, 255));
-	}
-}
-
-void cImageManager::CenterRender(texture* texturePtr, float x, float y, float size, float rot, D3DCOLOR color)
-{
-	Render(texturePtr, x - texturePtr->info.Width / 2, y - texturePtr->info.Height / 2, size, rot, color);
-}
-
-void cImageManager::CenterRender(texture* texturePtr, float x, float y, float rot)
-{
-	Render(texturePtr, x - texturePtr->info.Width / 2, y - texturePtr->info.Height / 2, rot);
-}
-
-void cImageManager::LostDevice()
-{
-	m_sprite->OnLostDevice();
-}
-
-void cImageManager::ResetDevice()
-{
-	m_sprite->OnResetDevice();
 }

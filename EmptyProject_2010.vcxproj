@@ -394,6 +394,8 @@
     <ClCompile Include="cScene.cpp" />
     <ClCompile Include="cSceneManager.cpp" />
     <ClCompile Include="cScroolMap.cpp" />
+    <ClCompile Include="cTexture.cpp" />
+    <ClCompile Include="cUIManager.cpp" />
     <ClCompile Include="mainGame.cpp" />
     <ClInclude Include="cBullet.h" />
     <ClInclude Include="cBulletAdmin.h" />
@@ -404,6 +406,8 @@
     <ClInclude Include="cScene.h" />
     <ClInclude Include="cSceneManager.h" />
     <ClInclude Include="cScroolMap.h" />
+    <ClInclude Include="cTexture.h" />
+    <ClInclude Include="cUIManager.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="stdafx.h" />
     <None Include="DXUT\Optional\directx.ico" />

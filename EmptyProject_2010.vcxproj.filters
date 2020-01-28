@@ -39,6 +39,9 @@
     <Filter Include="objects\bullet\cPlayerBullet">
       <UniqueIdentifier>{f00a165d-f420-4bdd-9473-cf04bba80f74}</UniqueIdentifier>
     </Filter>
+    <Filter Include="texture">
+      <UniqueIdentifier>{fc2dd075-6ced-4652-9309-d51a2bc3deed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -131,6 +134,12 @@
     <ClCompile Include="cPlayerBullet.cpp">
       <Filter>objects\bullet\cPlayerBullet</Filter>
     </ClCompile>
+    <ClCompile Include="cTexture.cpp">
+      <Filter>texture</Filter>
+    </ClCompile>
+    <ClCompile Include="cUIManager.cpp">
+      <Filter>managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -172,6 +181,12 @@
     </ClInclude>
     <ClInclude Include="cPlayerBullet.h">
       <Filter>objects\bullet\cPlayerBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="cTexture.h">
+      <Filter>texture</Filter>
+    </ClInclude>
+    <ClInclude Include="cUIManager.h">
+      <Filter>managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
