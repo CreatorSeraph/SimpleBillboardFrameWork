@@ -14,7 +14,7 @@ cBullet::~cBullet()
 
 void cBullet::Render()
 {
-	RENDER->Render(m_image, m_pos.x, m_pos.y);
+	RENDER->CenterRender(m_image, m_pos.x, m_pos.y);
 }
 
 bool cBullet::IsOutMap()

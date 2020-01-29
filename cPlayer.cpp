@@ -34,5 +34,5 @@ void cPlayer::Update()
 void cPlayer::Render()
 {
 	cout << m_pos.x << "\t" << m_pos.y << endl;
-	RENDER->Render(m_playerImage, m_pos.x, m_pos.y, -1);
+	RENDER->CenterRender(m_playerImage, m_pos.x, m_pos.y, 1);
 }

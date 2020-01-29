@@ -53,16 +53,16 @@ cRenderManager::cRenderManager()
     //투영 행렬 적용
     D3DXMATRIXA16 matProj;
 
-    D3DXMatrixOrthoLH(&matProj, WINSIZEX, WINSIZEY, 0, 100);
+    D3DXMatrixOrthoRH(&matProj, WINSIZEX, WINSIZEY, 0, 100);
     g_device->SetTransform(D3DTS_PROJECTION, &matProj);
     //--투영 행렬 적용
 
     D3DXMATRIXA16 matView;
-    m_camPos = D3DXVECTOR3(0.f, 0.f, -100.f);
+    m_camPos = D3DXVECTOR3(0.f, 0.f, 100.f);
     m_camLook = D3DXVECTOR3(0.f, 0.f, 0.f);
     m_camUp = D3DXVECTOR3(0.f, 1.f, 0.f);
 
-    D3DXMatrixLookAtLH(&matView, &m_camPos, &m_camLook, &m_camUp);
+    D3DXMatrixLookAtRH(&matView, &m_camPos, &m_camLook, &m_camUp);
     g_device->SetTransform(D3DTS_VIEW, &matView);
 }
 
@@ -82,7 +82,19 @@ void cRenderManager::CamUpdate()
 void cRenderManager::Render(cTexture* texturePtr, float x, float y, float z)
 {
     D3DXMATRIXA16 matPos, matScale, matWorld;
-    D3DXMatrixTranslation(&matPos, x, y, z);
+    D3DXMatrixTranslation(&matPos, x - WINSIZEX / 2 + texturePtr->info.Width / 2, -(y - WINSIZEY / 2 + texturePtr->info.Height / 2), z);
+    D3DXMatrixScaling(&matScale, texturePtr->info.Width, texturePtr->info.Height, 1);
+    matWorld = matScale * matPos;
+
+    g_device->SetTransform(D3DTS_WORLD, &matWorld);
+    g_device->SetTexture(0, texturePtr->texturePtr);
+    g_device->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, 4, 0, 2);
+}
+
+void cRenderManager::CenterRender(cTexture* texturePtr, float x, float y, float z)
+{
+    D3DXMATRIXA16 matPos, matScale, matWorld;
+    D3DXMatrixTranslation(&matPos, x - WINSIZEX / 2, -(y - WINSIZEY / 2), z);
     D3DXMatrixScaling(&matScale, texturePtr->info.Width, texturePtr->info.Height, 1);
     matWorld = matScale * matPos;
 

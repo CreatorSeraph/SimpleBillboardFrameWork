@@ -25,6 +25,7 @@ public:
 
     void CamUpdate();
     void Render(cTexture* texturePtr, float x, float y, float z = 0);
+    void CenterRender(cTexture* texturePtr, float x, float y, float z = 0);
 };
 
 #define RENDER cRenderManager::GetInstance()
