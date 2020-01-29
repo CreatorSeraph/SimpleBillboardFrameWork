@@ -6,7 +6,9 @@
 #include "cPlayer.h"
 
 cIngameScene::cIngameScene()
+	: m_map(nullptr), m_bullet(nullptr), m_player(nullptr)
 {
+	m_hpbar = IMAGEMANAGER->AddImage("hpbar", "./image/hpbar.png");
 }
 
 
@@ -44,4 +46,5 @@ void cIngameScene::Render()
 
 void cIngameScene::UIRender()
 {
+	UIMANAGER->Render(m_hpbar, 50, 50, 0.4, 0);
 }

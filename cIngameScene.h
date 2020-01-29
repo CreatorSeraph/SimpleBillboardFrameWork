@@ -10,6 +10,7 @@ private:
 	cScroolMap* m_map;
 	cPlayer* m_player;
 	cBulletAdmin* m_bullet;
+	cTexture* m_hpbar;
 public:
 	cIngameScene();
 	~cIngameScene();
