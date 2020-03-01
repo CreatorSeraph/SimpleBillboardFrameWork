@@ -395,6 +395,8 @@
     <ClCompile Include="cBulletAdmin.cpp" />
     <ClCompile Include="cImageManager.cpp" />
     <ClCompile Include="cIngameScene.cpp" />
+    <ClCompile Include="cObject.cpp" />
+    <ClCompile Include="cObjectManager.cpp" />
     <ClCompile Include="cPlayer.cpp" />
     <ClCompile Include="cPlayerBullet.cpp" />
     <ClCompile Include="cRenderManager.cpp" />
@@ -408,6 +410,8 @@
     <ClInclude Include="cBulletAdmin.h" />
     <ClInclude Include="cImageManager.h" />
     <ClInclude Include="cIngameScene.h" />
+    <ClInclude Include="cObject.h" />
+    <ClInclude Include="cObjectManager.h" />
     <ClInclude Include="cPlayer.h" />
     <ClInclude Include="cPlayerBullet.h" />
     <ClInclude Include="cRenderManager.h" />

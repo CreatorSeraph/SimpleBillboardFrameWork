@@ -7,9 +7,9 @@ class cBulletAdmin;
 class cIngameScene : public cScene
 {
 private:
-	cScroolMap* m_map;
-	cPlayer* m_player;
-	cBulletAdmin* m_bullet;
+	//cScroolMap* m_map;
+	//cPlayer* m_player;
+	//cBulletAdmin* m_bullet;
 	cTexture* m_hpbar;
 public:
 	cIngameScene();

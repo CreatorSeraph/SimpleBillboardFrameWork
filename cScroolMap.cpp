@@ -3,7 +3,7 @@
 
 
 cScroolMap::cScroolMap()
-	:m_scrool(0)
+	: m_scrool(0), m_scroolSpeed(100)
 {
 	m_backGround = IMAGEMANAGER->AddImage("mapBackGround", "./image/mapBackGround.png");
 }
@@ -12,9 +12,9 @@ cScroolMap::~cScroolMap()
 {
 }
 
-void cScroolMap::Update(float speed)
+void cScroolMap::Update()
 {
-	m_scrool += speed * DXUTGetElapsedTime();
+	m_scrool += m_scroolSpeed * DXUTGetElapsedTime();
 }
 
 void cScroolMap::Render()

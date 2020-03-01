@@ -1,5 +1,7 @@
 #pragma once
-class cBullet abstract
+#include "cObject.h"
+
+class cBullet abstract : public cObject
 {
 protected:
 	cTexture* m_image;
@@ -10,8 +12,8 @@ public:
 	cBullet(const D3DXVECTOR2& pos, double size);
 	virtual ~cBullet();
 
-	virtual void Update() PURE;
-	void Render();
+	virtual void Update() override;
+	virtual void Render() override;
 
 	bool IsOutMap();
 };

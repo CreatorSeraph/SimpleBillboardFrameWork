@@ -24,15 +24,18 @@ void mainGame::Release()
 	cUIManager::ReleaseInstance();
 	cRenderManager::ReleaseInstance();
 	cImageManager::ReleaseInstance();
+	cObjectManager::ReleaseInstance();
 }
 
 void mainGame::Update()
 {
+	OBJMANAGER->Update();
 	SCENEMANAGER->Update();
 }
 
 void mainGame::Render()
 {
+	OBJMANAGER->Render();
 	SCENEMANAGER->Render();
 
 	UIMANAGER->Begin();

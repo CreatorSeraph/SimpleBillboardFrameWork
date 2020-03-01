@@ -1,16 +1,20 @@
 #pragma once
-class cScroolMap
+#include "cObject.h"
+
+class cScroolMap : public cObject
 {
 private:
 	float m_scrool;
+	float m_scroolSpeed;
 	cTexture* m_backGround;
 public:
 	cScroolMap();
 	~cScroolMap();
 
-	void Update(float speed);
-	void Render();
+	virtual void Update() override;
+	virtual void Render() override;
 
 	float GetScrool() { return m_scrool; }
+	float GetScroolSpeed() { return m_scroolSpeed; }
 };
 

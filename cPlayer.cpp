@@ -3,8 +3,8 @@
 
 #include "cPlayerBullet.h"
 
-cPlayer::cPlayer(vector<cBullet*>& playerBullet)
-	:m_pos(WINSIZEX / 2, 450), m_fireBullet(playerBullet)
+cPlayer::cPlayer()
+	:m_pos(WINSIZEX / 2, 450)
 {
 	m_playerImage = IMAGEMANAGER->AddImage("player", "./image/player.png");
 }
@@ -26,8 +26,7 @@ void cPlayer::Update()
 		m_pos.y += 300 * DXUTGetElapsedTime();
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 	{
-		m_fireBullet.push_back(new cPlayerBullet(
-			D3DXVECTOR2(m_pos.x, m_pos.y - 60)));
+		OBJMANAGER->AddObject(new cPlayerBullet(D3DXVECTOR2(m_pos.x, m_pos.y - 60)));
 	}
 }
 

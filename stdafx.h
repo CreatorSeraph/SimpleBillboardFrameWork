@@ -26,3 +26,4 @@ const int WINSIZEY = 600;
 #include "cUIManager.h"
 #include "cRenderManager.h"
 #include "cSceneManager.h"
+#include "cObjectManager.h"

@@ -75,7 +75,7 @@ cRenderManager::~cRenderManager()
 void cRenderManager::CamUpdate()
 {
     D3DXMATRIXA16 matView;
-    D3DXMatrixLookAtLH(&matView, &m_camPos, &m_camLook, &m_camUp);
+    D3DXMatrixLookAtRH(&matView, &m_camPos, &m_camLook, &m_camUp);
     g_device->SetTransform(D3DTS_VIEW, &matView);
 }
 

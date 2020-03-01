@@ -13,5 +13,6 @@ cPlayerBullet::~cPlayerBullet()
 
 void cPlayerBullet::Update()
 {
+	cBullet::Update();
 	m_pos.y -= 500 * DXUTGetElapsedTime();
 }

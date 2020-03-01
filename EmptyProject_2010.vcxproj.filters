@@ -143,6 +143,12 @@
     <ClCompile Include="cRenderManager.cpp">
       <Filter>managers</Filter>
     </ClCompile>
+    <ClCompile Include="cObjectManager.cpp">
+      <Filter>managers</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject.cpp">
+      <Filter>objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -193,6 +199,12 @@
     </ClInclude>
     <ClInclude Include="cRenderManager.h">
       <Filter>managers</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager.h">
+      <Filter>managers</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject.h">
+      <Filter>objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

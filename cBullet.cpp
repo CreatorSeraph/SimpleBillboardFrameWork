@@ -3,13 +3,19 @@
 
 
 cBullet::cBullet(const D3DXVECTOR2& pos, double size)
-	: m_pos(pos), m_size(size), m_image(nullptr)
+	: cObject("bullet"), m_pos(pos), m_size(size), m_image(nullptr)
 {
 }
 
 
 cBullet::~cBullet()
 {
+}
+
+void cBullet::Update()
+{
+	if (IsOutMap())
+		DestroyObj();
 }
 
 void cBullet::Render()
